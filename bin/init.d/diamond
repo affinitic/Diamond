@@ -21,6 +21,7 @@
 
 # Author: Sam Bashton <sam@bashton.com>
 NAME=diamond
+PYTHON=/opt/python-diamond/bin/python
 DAEMON=/usr/bin/diamond
 DAEMON_ARGS="-p /var/run/diamond.pid"
 PIDFILE=/var/run/diamond.pid
@@ -47,7 +48,7 @@ start() {
   fi
   
   echo -n $"Starting $NAME: "
-  daemon --pidfile $PIDFILE $DAEMON $DAEMON_ARGS
+  daemon --pidfile $PIDFILE $PYTHON $DAEMON $DAEMON_ARGS
   retval=$?
   if [ $retval -eq 0 ]; then
     echo_success
