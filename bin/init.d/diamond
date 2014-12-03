@@ -48,7 +48,7 @@ start() {
   fi
   
   echo -n $"Starting $NAME: "
-  daemon --pidfile $PIDFILE $PYTHON $DAEMON $DAEMON_ARGS
+  LD_LIBRARY_PATH="${ORACLE_HOME}/lib" daemon --pidfile $PIDFILE $PYTHON $DAEMON $DAEMON_ARGS
   retval=$?
   if [ $retval -eq 0 ]; then
     echo_success
